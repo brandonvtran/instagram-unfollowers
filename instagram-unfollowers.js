@@ -1,3 +1,4 @@
+// Topic: how does user unfollower proportion affect engagement
 const fetchOptions = {
     credentials: "include",
     headers: {
@@ -63,7 +64,6 @@ const fetchOptions = {
     return data.users;
   };
   
-  // helper methods to make the code a bit more readable
   const getFollowers = (user_id, count = 50, next_max_id = "") => {
     return concatFriendshipsApiResponse("followers", user_id, count, next_max_id);
   };
@@ -121,11 +121,11 @@ const fetchOptions = {
       " following."
     );
   
-    const PeopleNotFollowingMeBack = Array.from(followingSet).filter(
+    const unfollowers = Array.from(followingSet).filter(
       (following) => !followerSet.has(following)
     );
   
-    return PeopleNotFollowingMeBack
+    return unfollowers
   };
   
   // Replace "example_username" below with your instagram username
